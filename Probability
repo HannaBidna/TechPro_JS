@@ -6,11 +6,20 @@ function checkProbabilityTheory(count){
     for (let i = 0; i < count; i++){
         const randomNumber = getRandomNum(10,100);
         if (randomNumber % 2 === 0){
-            countOfEven++;
-            //console.log(getRandomNum(10,100));
-        }
+            countOfEven++;  
     }
-    let countOfOdd = Math.abs(count - countOfEven);
-    return (Math.round((countOfEven/count)*100) + '%');   
 }
-console.log(checkProbabilityTheory(50));
+const countOfOdd = count - countOfEven;
+const percentage = Math.round((countOfEven / count) * 100);
+
+return {
+        even: countOfEven,
+        odd: countOfOdd,
+        percentage: percentage + '%'
+    };
+}
+//console.log('Even numbers:',countOfEven);
+//console.log('Odd numbers:',Math.abs(count - countOfEven));
+console.log('Even numbers:',checkProbabilityTheory(1000).even);
+console.log('Odd numbers:', checkProbabilityTheory(1000).odd);
+console.log('Percentage:',checkProbabilityTheory(1000).percentage);
