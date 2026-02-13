@@ -1,0 +1,16 @@
+function getRandomNum (min, max) {
+ return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function checkProbabilityTheory(count){
+    let countOfEven = 0;
+    for (let i = 0; i < count; i++){
+        const randomNumber = getRandomNum(10,100);
+        if (randomNumber % 2 === 0){
+            countOfEven++;
+            //console.log(getRandomNum(10,100));
+        }
+    }
+    let countOfOdd = Math.abs(count - countOfEven);
+    return (Math.round((countOfEven/count)*100) + '%');   
+}
+console.log(checkProbabilityTheory(50));
